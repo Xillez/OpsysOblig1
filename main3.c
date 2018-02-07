@@ -86,17 +86,26 @@ int main()
 {
     sem_init(&mutex, 0, 1);
     srand(time(NULL));
-    struct pargs* args[N];
+    //struct pargs* args[N];'
+    struct pargs args[N];
     // Loop through the philosophers, init their semphore, and creates them
     for (int i = 0; i < N; i++)
     {
         // Allocate memory to arguments
-        args[i] = (struct pargs *)malloc(sizeof(struct pargs));
-        args[i]->nr = i;
+        args[i].nr = i;
 
         // Thread 0 and 2 should start, no-one else
         sem_init(&s[i], 0, 0);
-        pthread_create(&philosophers[i], NULL, philosopher, (void* )&args[i]);
+        pthread_create(&philosophers[i], NULL, philosopher, (void*) &args[i]);
+    }
+
+    while (1 == 1)
+    {
+        for (int i = 0; i < N; i++)
+        {
+            printf("%s  ", ((state[i] == HUNGRY) ? "HUNGRY" : ((state[i] == THINKING) ? "THINKING" : "EATING")));
+        }
+        printf("\n");
     }
 
     // Wait for all philosophers
