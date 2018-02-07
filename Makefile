@@ -2,8 +2,14 @@
 OBJS = main3.c
 
 #Compiler
-CC = gcc
-
+UNAME_S := $(shell uname -s)
+    ifeq ($(UNAME_S),Linux)
+        CC = gcc
+    endif
+    ifeq ($(UNAME_S),Darwin)
+        CC = gcc-7
+    endif
+ 
 #Compiler flags
 # -Wall 		Includes ALL warnings
 # -g			Include debug
@@ -17,10 +23,10 @@ CC = gcc
 CFLAGS = -Wall -pthread
 
 #Linker flags
-# -lSDL2		
+# -lSDL2
 # -lSDL2_image
 LFLAGS = -lpthread
-# -L/usr/include/SFML 
+# -L/usr/include/SFML
 # -lSDL2 				Link to the SDL2 library
 # -lSDL2_image			Link to the SDL2_image library, needed for more advanced image file types
 # -lassimp
