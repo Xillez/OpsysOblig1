@@ -21,7 +21,7 @@ int state[N];
 sem_t mutex;
 sem_t s[N];
 
-void *philosopher(void *pargs);
+void* philosopher(void* pargs);
 void take_forks(int i);
 void put_forks(int i);
 void test(int i);
@@ -43,7 +43,7 @@ void think(int i)
 
 void* philosopher(void* pargs)
 {
-    struct pargs* args = pargs;
+    struct pargs* args = (struct pargs*) pargs;
     printf("%d starts!\n", args->nr);
     while (1 == 1)
     {
@@ -84,6 +84,7 @@ void test(int i)
 
 int main()
 {
+    sem_init(&mutex, 0, 1);
     srand(time(NULL));
     struct pargs* args[N];
     // Loop through the philosophers, init their semphore, and creates them
@@ -95,7 +96,7 @@ int main()
 
         // Thread 0 and 2 should start, no-one else
         sem_init(&s[i], 0, 0);
-        pthread_create(&philosophers[i], NULL, philosopher, (void *)&args[i]);
+        pthread_create(&philosophers[i], NULL, philosopher, (void* )&args[i]);
     }
 
     // Wait for all philosophers
