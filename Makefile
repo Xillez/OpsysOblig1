@@ -1,5 +1,5 @@
 #Files to be compiled
-OBJS = main2.c
+OBJS = main3.c
 
 #Compiler
 CC = gcc
@@ -14,7 +14,7 @@ CC = gcc
 # -O2           Optimize (LEVEL 2!)
 # -O3           Optimize (LEVEL 3!)
 # -pthread      Say we're making a multithreaded program
-CFLAGS = -Wall -g -ggdb -pthread
+CFLAGS = -Wall -pthread
 
 #Linker flags
 # -lSDL2		
@@ -36,7 +36,7 @@ LFLAGS = -lpthread
 # -lpthread             Link to pthread library
 
 #Name of our exectuable
-OBJ_NAME = main2
+OBJ_NAME = ./bin/main3
 
 #This is the target that compiles our executable
 #Run with command: "make"
