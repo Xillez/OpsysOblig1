@@ -44,8 +44,12 @@ all : $(OBJS)
 	$(CC) $(OBJS) $(CFLAGS) $(LFLAGS) -o $(OBJ_NAME)
 
 #Removes old compiled files. Usefull for running clean builds.
-#Run with command: "make clean"
+#Run with command: "make clean" OR "make clear"
 clean :
+	rm *.o
+	rm $(OBJ_NAME)
+
+clear :
 	rm *.o
 	rm $(OBJ_NAME)
 
