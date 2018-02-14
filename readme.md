@@ -9,7 +9,7 @@ https://github.com/NTNUcourses/opsys/blob/master/ in 'README-C-code-quality.txt'
 * **gcc file -Wall**  
 Compiles using gcc with all warnings.
 
-Install:
+Install:  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Inherent on Ubuntu and OSX.
 
 
