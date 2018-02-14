@@ -20,7 +20,11 @@ int pid[6];
 int main(void)
 {
     pid[0] = fork();
-    if (pid[0] < 0) printf("Failed to create process %d!\n", 0);
+
+    if (pid[0] < 0)
+	{
+		printf("Failed to create process %d!\n", 0);
+	}
     else if( pid[0] == 0)
     {
         process(0, 1);										// Child
@@ -29,7 +33,11 @@ int main(void)
 
     // Parent
     pid[2] = fork();
-    if (pid[2] < 0) printf("Failed to create process %d!\n", 2);
+
+    if (pid[2] < 0)
+	{
+		printf("Failed to create process %d!\n", 2);
+	}
     else if( pid[2] == 0)
     {
         process(2, 3);										// Child
@@ -39,7 +47,11 @@ int main(void)
     waitpid(pid[0], NULL, 0);
 
     pid[1] = fork();
-    if (pid[1] < 0) printf("Failed to create process %d!\n", 1);
+
+    if (pid[1] < 0)
+	{
+		printf("Failed to create process %d!\n", 1);
+	}
     else if( pid[1] == 0)
     {
         process(1, 2);										// Child
@@ -47,7 +59,11 @@ int main(void)
     }
 
     pid[4] = fork();
-    if (pid[4] < 0) printf("Failed to create process %d!\n", 4);
+
+    if (pid[4] < 0)
+	{
+		printf("Failed to create process %d!\n", 4);
+	}
     else if( pid[4] == 0)
     {
         process(4, 3);										// Child
@@ -58,7 +74,11 @@ int main(void)
     waitpid(pid[2], NULL, 0);
 
     pid[3] = fork();
-    if (pid[3] < 0) printf("Failed to create process %d!\n", 3);
+
+    if (pid[3] < 0)
+	{
+		printf("Failed to create process %d!\n", 3);
+	}
     else if( pid[3] == 0)
     {
         process(3, 2);										// Child
@@ -68,7 +88,11 @@ int main(void)
     waitpid(pid[4], NULL, 0);
 
     pid[5] = fork();
-    if (pid[5] < 0) printf("Failed to create process %d!\n", 5);
+
+    if (pid[5] < 0)
+	{
+		printf("Failed to create process %d!\n", 5);
+	}
     else if( pid[5] == 0)
     {
         process(5, 3);										// Child
