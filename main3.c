@@ -54,6 +54,7 @@ void think()
 
 void* philosopher(void* pargs)
 {
+    // Tracks number of prints for each thread. Thread exits if over NR_PRINTS
     int nrPrints = 0;
 
     // Get arguments
@@ -67,6 +68,7 @@ void* philosopher(void* pargs)
         eat();
         put_forks(args->nr);
         
+        // Done with a loop
         nrPrints++;
     }
     return 0;
@@ -116,13 +118,13 @@ int main()
     srand(time(NULL));
     //struct pargs* args[N];'
     struct pargs args[N];
-    // Loop through the philosophers, init their semphore, and creates them
-    for (i = 0; i < N; i++)
+    // Loop through the philosophers, init their semaphore, and creates them
+    for (int i = 0; i < N; i++)
     {
         // Define nr argument
         args[i].nr = i;
 
-        // Set ininitial start state and create threads
+        // Set initial start state and create threads
         sem_init(&s[i], 0, 0);
         pthread_create(&philosophers[i], NULL, philosopher, (void*) &args[i]);
     }
@@ -132,5 +134,7 @@ int main()
     {
         pthread_join(philosophers[i], NULL);
     }
+
+    // Exit program
     exit(0);
 }
