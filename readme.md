@@ -4,16 +4,27 @@
 
 The following tools were used to insure code quality in this hand-in:
 * **gcc file -Wall**
-Compiles the program with all warnings using gcc. Inherent on Ubuntu and OSX.
+	Compiles using gcc with all warnings.
+
+	Inherent on Ubuntu and OSX.
 
 * **cppcheck --enable=all ./file**
-Static analysis tool that checks for semantic bugs, bad conventions and undefined behaviour.
-Has to be installed with bash command 'sudo apt-get install cppcheck'.
+	From http://cppcheck.sourceforge.net/:
+	"Cppcheck is a static analysis tool for C/C++ code. It provides unique code analysis to detect bugs and focuses on detecting undefined behaviour and dangerous coding constructs. The goal is to detect only real errors in the code (i.e. have very few false positives)."
+
+	INSTALL GUIDE HERE
+
+//Static analysis tool that checks for semantic bugs, bad conventions and undefined behaviour.
+//Has to be installed with bash command 'sudo apt-get install cppcheck'.
 
 * **clang-tidy-5.0 -checks='\*' file -- -std=c11**
-Linter tool that points out misuse of interfaces, inconsistency in conventions / style violations.
-Has to be installed by first installing the clang compiler of version 5.0 with 'sudo apt-get install clang-5.0',
-then installing tidy with 'sudo apt-get install clang-tidy-5.0'.
+	From https://clang.llvm.org/extra/clang-tidy/:
+	"Clang-tidy is a clang-based C++ “linter” tool. Its purpose is to provide an extensible framework for diagnosing and fixing typical programming errors, like style violations, interface misuse, or bugs that can be deduced via static analysis. clang-tidy is modular and provides a convenient interface for writing new checks."
+
+	INSTALL GUIDE HERE
+
+//Has to be installed by first installing the clang compiler of version 5.0 with 'sudo apt-get //install clang-5.0',
+//then installing tidy with 'sudo apt-get install clang-tidy-5.0'.
 
 * **valgrind --leak-check=yes ./file**
 Dynamic analysis tool that monitors memory usage and give error in the case of memory leaks.
