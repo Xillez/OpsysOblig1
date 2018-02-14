@@ -1,12 +1,12 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include <pthread.h>
 #include <semaphore.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
 
 #define N 5
-#define LEFT (i + N - 1) % N
-#define RIGHT (i + 1) % N
+#define LEFT ((i + N - 1) % N)
+#define RIGHT ((i + 1) % N)
 #define THINKING 0
 #define HUNGRY 1
 #define EATING 2
@@ -28,10 +28,10 @@ void* philosopher(void* pargs);
 void take_forks(int i);
 void put_forks(int i);
 void test(int i);
-void eat(int i);
+void eat();
 void think();
 
-void eat(int i)
+void eat()
 {
     // Print the states of all philosophers in a critical area
     sem_wait(&printing);
@@ -59,11 +59,12 @@ void* philosopher(void* pargs)
     // Get arguments
     struct pargs* args = (struct pargs*) pargs;
 
+    // Do some amount of loops
     while (nrPrints < NR_PRINTS)
     {
         think();
         take_forks(args->nr);
-        eat(args->nr);
+        eat();
         put_forks(args->nr);
         
         nrPrints++;

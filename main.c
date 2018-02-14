@@ -1,8 +1,8 @@
 #include <stdio.h> 		// printf
 #include <stdlib.h> 	// exit
+#include <sys/types.h>  // pid_t
+#include <sys/wait.h>   // waitpid
 #include <unistd.h> 	// fork
-#include <sys/wait.h> 	// waitpid
-#include <sys/types.h> 	// pid_t
 
 
 // Function each process runs,
