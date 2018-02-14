@@ -73,7 +73,7 @@ int main(void)
 		exit(0);
 	}
 
-	// Fork 1 and 4 is started, now wait for 1 and 2 to finish to start fork 3.
+	// Fork 1 and 4 is started, now wait for 1 and 2 to finish to start fork 3:
 
 	waitpid(pid[1], NULL, 0);
 	waitpid(pid[2], NULL, 0);
@@ -90,7 +90,7 @@ int main(void)
 		exit(0);
 	}
 
-	// All other forks are started, now wait for 4 to start the last fork, 5.
+	// All other forks are started, now wait for 4 to start the last fork, 5:
 
 	waitpid(pid[4], NULL, 0);
 
@@ -106,7 +106,7 @@ int main(void)
 		exit(0);
 	}
 
-	// All forks are started, just wait for the last one to finish.
+	// All forks are started, just wait for the last one to finish:
 	waitpid(pid[5], NULL, 0);
 
 	exit(0);
